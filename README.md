@@ -56,6 +56,8 @@ Our dataset is comprised of:
   - imdbid 
   - rating
 
+To Do: 
+- add rotten tomatoes for the ratings
 
 Sources: 
 - https://www.imdb.com/interfaces/ 
