@@ -36,7 +36,7 @@ Our dataset is comprised of:
   - averageRating – weighted average of all the individual user ratings
   - numVotes - number of votes the title has received
 - name.basics.tsv: 
-  - nconst (string) - alphanumeric unique identifier of the name/person
+  - nconst (string) - alphanumeric unique identifier of the name/person --> director name 
   - primaryName (string)– name by which the person is most often credited
   - birthYear – in YYYY format
   - deathYear – in YYYY format if applicable, else '\N'
