@@ -42,7 +42,23 @@ Our dataset is comprised of:
   - deathYear – in YYYY format if applicable, else '\N'
   - primaryProfession (array of strings)– the top-3 professions of the person
   - knownForTitles (array of tconsts) – titles the person is known for
+- character_mapping.csv: 
+  - imdb_id
+  - script_id 
+  - title
+  - year
+  - gross(inflation_adjusted) 
+  - link 
+- bechdeltest: 
+  - id 
+  - title
+  - year
+  - imdbid 
+  - rating
 
 
 Sources: 
 - https://www.imdb.com/interfaces/ 
+- https://github.com/matthewfdaniels/scripts/blob/graphs/character_list5.csv 
+- https://docs.google.com/spreadsheets/d/1fbcldxxyRvHjDaaY0EeQnQzvSP7Ub8QYVM2bIs-tKH8/edit#gid=1668340193
+- http://bechdeltest.com/api/v1/getAllMovies
