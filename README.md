@@ -1,66 +1,21 @@
+Group Members: Elizabeth Combs, Lauren D'Arinzo, Amber Teng
+
+“Regardless of the content, a film has the power to shape perceptions of moviegoers on a range of subjects from love and marriage to the work of the government” - cf. Franklin 2006 ; Kolker 1999 ; Ortega-Liston 2000 ; Riggle, Ellis, and Crawford 1996
+
 # Visualizing-Gender-Representation-in-Movies
+http://imdbgenderrepresentation.getforge.io/
 
-Our dataset is comprised of: 
-- title.akas.tsv: 
-  - titleId (string) - a tconst, an alphanumeric unique identifier of the title
-  - ordering (integer) – a number to uniquely identify rows for a given titleId
-  - title (string) – the localized title
-  - region (string) - the region for this version of the title
-  - language (string) - the language of the title
-  - types (array) - Enumerated set of attributes for this alternative title. One or more of the following: "alternative", "dvd", "festival", "tv", "video", "working", "original", "imdbDisplay". New values may be added in the future without warning
-  - attributes (array) - Additional terms to describe this alternative title, not enumerated
-  - isOriginalTitle (boolean) – 0: not original title; 1: original title
-- title.basics.tsv: 
-  - tconst (string) - alphanumeric unique identifier of the title
-  - titleType (string) – the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)
-  - primaryTitle (string) – the more popular title / the title used by the filmmakers on promotional materials at the point of release
-  - originalTitle (string) - original title, in the original language
-  - isAdult (boolean) - 0: non-adult title; 1: adult title
-  - startYear (YYYY) – represents the release year of a title. In the case of TV Series, it is the series start year
-  - endYear (YYYY) – TV Series end year. ‘\N’ for all other title types
-  - runtimeMinutes – primary runtime of the title, in minutes
-  - genres (string array) – includes up to three genres associated with the title
-- title.crew.tsv: 
-  - tconst (string) - alphanumeric unique identifier of the title
-  - directors (array of nconsts) - director(s) of the given title
-  - writers (array of nconsts) – writer(s) of the given title
-- title.principals.tsv: 
-  - tconst (string) - alphanumeric unique identifier of the title
-  - ordering (integer) – a number to uniquely identify rows for a given titleId
-  - nconst (string) - alphanumeric unique identifier of the name/person
-  - category (string) - the category of job that person was in
-  - job (string) - the specific job title if applicable, else '\N'
-  - characters (string) - the name of the character played if applicable, else '\N' 
-- title.ratings.tsv: 
-  - tconst (string) - alphanumeric unique identifier of the title
-  - averageRating – weighted average of all the individual user ratings
-  - numVotes - number of votes the title has received
-- name.basics.tsv: 
-  - nconst (string) - alphanumeric unique identifier of the name/person --> director name 
-  - primaryName (string)– name by which the person is most often credited
-  - birthYear – in YYYY format
-  - deathYear – in YYYY format if applicable, else '\N'
-  - primaryProfession (array of strings)– the top-3 professions of the person
-  - knownForTitles (array of tconsts) – titles the person is known for
-- character_mapping.csv: 
-  - imdb_id
-  - script_id 
-  - title
-  - year
-  - gross(inflation_adjusted) 
-  - link 
-- bechdeltest: 
-  - id 
-  - title
-  - year
-  - imdbid 
-  - rating
+## Overview:
+The Bechdel test is a blunt, basic measure of gender equality in fictional media. The test is comprised of three criteria: a movie or work of fiction has to (1) have at least two women in it, (2) who talk to each other, and (3) have a conversation that revolves around a topic other than a man.
 
-To Do: 
-- add rotten tomatoes for the ratings
+From a data science perspective, we wondered if and how we could automate the process of scoring a film based on the Bechdel criteria. This project aims to complete a descriptive analysis to assess the potential of creating such a method.
 
-Sources: 
+## Conclusions:
+In this descriptive exploration of data, we have begun to see how nuanced an automation methodology would need to be to accurately capture the scoring of the Bechdel test. It would be difficult to find single proxy variables for the 3 criteria of the test, and feature engineering would need to include domain knowledge. This is not to say that automation is impossible; but our takeaway is that, as Data Scientists, we are the ones who need to voice concerns about using proxies that aren’t representative, and we should include the voices of domain experts when modeling qualitative outcomes that may be subjective.
+
+Finding a way to automate the Bechdel test may be a difficult undertaking; however, it could help improve the measure of the true proportion of Bechdel passing films by scoring all movies in the IMDb and beyond. It is of note is that it is also not the only metric for quantifying representation in media, as it only considers one identity variable -- gender. Washington Post writer Alyssa Rosenberg claims "The Bechdel Test set a very low floor for Hollywood. We can't let it become the ceiling for progress [3]." In the past decade, many other representation tests have been formulated, considering the distribution of people who work on the film's production, or relating other intersectional features like race, ethnicity, socioeconomic status, so that representation is inclusive to identities beyond cisgender white women. Though our analysis focuses on the Bechdel Test, our suggestions about feature engineering can help establish similar methodologies for other tests and continue to build a more equitable movie industry.
+
+## Data Sources: 
 - https://www.imdb.com/interfaces/ 
 - https://github.com/matthewfdaniels/scripts/blob/graphs/character_list5.csv 
-- https://docs.google.com/spreadsheets/d/1fbcldxxyRvHjDaaY0EeQnQzvSP7Ub8QYVM2bIs-tKH8/edit#gid=1668340193
 - http://bechdeltest.com/api/v1/getAllMovies
