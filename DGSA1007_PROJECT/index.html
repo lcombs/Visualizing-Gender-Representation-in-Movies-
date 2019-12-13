@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Visualing Gender Representation in Films</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/new-age.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Introduction to Programming</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#background">Background</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#bechdel">The Bechdel Test</a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#automation">Automation</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#visualization">Visualizations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#conclusion">Conclusion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="https://github.com/angelaaaateng/Visualizing-Gender-Representation-in-Movies-">GitHub Repo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="https://public.tableau.com/profile/lauren.d.arinzo#!/">Tableau</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="https://mybinder.org/v2/gh/angelaaaateng/Visualizing-Gender-Representation-in-Movies-/master">Binder</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+          <div class="header-content mx-auto">
+            <h2>“Regardless of the content, a film has the power to shape perceptions of moviegoers on a range of subjects from love and marriage to the work of the government”</h2>
+            <!-- <h1 class="mb-5">As the number of films increases over time, so does the importance of gender representation in the media. </h1> -->
+            <p> cf. Franklin  2006 ; Kolker  1999 ; Ortega-Liston  2000 ; Riggle, Ellis, and Crawford  1996 </p>
+            <a href="#background" class="btn btn-outline btn-xl js-scroll-trigger">Why Does This Matter?</a>
+          </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+          <div class="device-container">
+              <img src="img/k.jpg" class="img-fluid" alt="">
+            <!-- <div class="device-mockup iphone6_plus portrait white">
+              <div class="device">
+                <div class="screen">
+                  Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                  <!-- <img src="img/a.jpg" class="img-fluid" alt=""> -->
+                <!-- </div> -->
+                <div class="button">
+                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="download bg-primary text-justify" id="background">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h2 class="section-heading">Background</h2>
+        <p>The Bechdel test is a blunt, basic measure of gender equality in fictional media. </p>
+        <img src="img/bechdel.png" class="img-fluid" alt="">
+        <p>From a data science perspective, we wondered if and how we could automate the process of scoring a film based on the Bechdel criteria. This project aims to complete a descriptive analysis to assess the potential of creating such a method.</p>
+
+          <h3> Data Source </h3>
+
+          <p>  <a href="https://bechdeltest.com/ " style="color:#FF0000;"> BechdelTest.com</a> sources API to query their list of movies that have been scored on the test criteria [2]. Their data include a unique IMDb movie ID for each film, allowing us to link the Bechdel data to public movie data from IMDb that includes further information about the title, like genre and the average rating by IMDb users. We also utilize Polygraph's Film Dialogue Dataset which contains information from movie scripts about the number of words spoken by each character, as well as the available demographic information on that character. We suspect that some of the fields, like age, make be estimates, but consider the gender feature to be largely reliable.
+          </p>
+<!--
+          <h3> Merging Datasets </h3>
+          <p> We merge data from three different sources:</p>
+          <ol>
+
+
+              <li> Bechdel (http://bechdeltest.com/api/v1/getAllMovies)</li>
+              <li> Scripts (https://github.com/matthewfdaniels/scripts) </li>
+                <ul>
+                  <li> character_list5.csv</li>
+                  <li> character_mapping.csv</li>
+                </ul>
+              <li> IMDb (https://www.imdb.com/interfaces/)</li>
+                <ul>
+                  <li>title.akas.tsv</li>
+                  <li>title.basics.tsv</li>
+                  <li>title.ratings.tsv</li>
+                </ul>
+              We export two clean files:
+
+              (1) df_movies_bechdel.csv
+              (2) df_movies_all.csv
+          </ol> -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="features" id="bechdel">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2> The Bechdel Test</h2>
+        <p> Define - https://bechdeltest.com/</p>
+        <p>1. It has to have at least two [named] women in it</p>
+        <p>  2. Who talk to each other</p>
+        <p>  3. About something besides a man</p>
+
+        <p>  Justify - reverse bechdel test (https://www.imdb.com/list/ls058989663/)
+          What we are adding: Though these two data sets overlap substantially, especially in recent years, data analysis the sources together has rarely been seen.
+          Data: https://bechdeltest.com/api/v1/doc
+          </p>
+        <p> How are women represented in IMDB-rated movies?
+          And how do they interact with their male counterparts?
+          How has the public perceived films that portray at least two women who have a conversation,
+          and how has that perception changed over time? And, can data visualization play a role in data ethics,
+          and if so, what are some of the best practices? </p>
+        <br>
+
+          <p>In the age of technology and media, our group wanted to better understand how women were, and continue to be represented in films, particularly those rated by both users and critics. With the spread of globalization, and without the appropriate controls in place, we run the risk of misrepresenting women in films and modern culture--a misrepresentation that could perpetuate ideas of gender discrimination and inequality. Thus, as the first step to study this phenomenon at a deeper and more robust level, we wanted to use data visualization methods both to analyze our dataset and share our findings.</p>
+
+        <p class="text-muted">Check out what you can do with this app theme!</p> -->
+        <!-- <hr>
+      </div>
+      </div>
+    </div>
+  </section> -->
+
+<!--
+  <section class="download bg-primary text-center" id="automation">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h2 class="section-heading">Automation</h2>
+          <p> As data scientists, we wonder if and how we could automate the process of scoring a film based on the Bechdel criteria. This project aims to complete a descriptive analysis to assess the potential of creating such a method. We review the possibility through data visualizations to compare the number of movies scored and the ratio of passing movies over time. We also examine the use of word count as a potential proxy to quantify the words spoken my women in a film.
+                Returning to the three criteria of the Bechdel test, we construct an even deeper analysis with the following data:
+                Number of characters in a movie by gender
+                Number of words spoken by gender
+                The content of the words spoken by each gender (tagged scripts by movie)
+                </p>
+                          <p>Sourcing: Since our data comes from many tables, we have used joins in pandas to merge important information together for the purpose of our project.
+                </p>
+            <p>Preparing: We also prepared the data using data cleaning tactics including fill missing years with average of closest neighbors, splitting genres into binary categories, and discretizing years using pandas cut functionality.</p>
+
+            <p> Visualizing: In order to make visualizations in Jupyter Notebook, we have started using matplotlib and seaborn. We also plan to deploy a Tableau dashboard to provide users with a more interactive component in exploring our data.</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+  <section class="features" id="visualization">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>Visualizations:</h2>
+        <!-- <p> Genre differences </p> -->
+        <!-- <br> -->
+        <p>In the first dashboard, we examine the ratio of all movies that have been scored by the Bechdel test over time. Despite the upward trend, the maximum ratio is less than 40%, supporting the argument that there is a need to make the scoring process more efficient. If we are to consider the representation of women in media as reflective of perceptions of women by society, it is important that the distribution of Bechdel scores is representative of all movies.
+        </p>
+        <div class='tableauPlaceholder' id='viz1576008369378' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Fig1_PercentScored&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Fig1_PercentScored&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Fig1_PercentScored&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1576008369378');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='1050px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='1050px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+        <!-- <img src="img/b.png" class="img-fluid" alt=""> -->
+        <!-- <p> The graph shows ratios of movies that passed the Bechdel test by genre for the top occuring genres.</p>
+          <p>Discussion:
+          The portion of movies that pass the Bechdel test varies conditioned on the genre of the movie.
+          We can see a similar upward trend in most of the top genres since the 1970s. However, for most of the top genres, there has been a slow decrease in the percentage of movies passed in the new millennium.
+          Romance and Horror have had the highest ratio of passing the Bechdel test since the 1980s; while Crime and Action films have had the lowest ratio of passing.
+
+          </p> -->
+        <!-- <p class="text-muted">Check out what you can do with this app theme!</p> -->
+      <!-- <hr> -->
+      <!-- </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading text-center"> -->
+        <!-- <h2>Motivation for Problem / Application:</h2> -->
+        <!-- <p> Number scored vs. total movies </p> -->
+        <!-- <br> -->
+        <p>The second dashboard compares the ratio of movies that pass the test to the proportion of words belonging to female characters, aggregated across movies over time. Without exploring the data, word-count would seem like a logical proxy to capture representation for use in an algorithmic approach. However, the results of this figure suggest otherwise. Over time, the ratio of movies passing the test has a larger slope than the ratio of female words to total words; this means that the content criterion of the Bechdel Test may play a larger role than just the word count. Using word count as a proxy for feature engineering purposes may not be the wisest decision.
+        </p>
+        <div class='tableauPlaceholder' id='viz1576008492875' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Fig2_Proxies&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Fig2_Proxies&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Fig2_Proxies&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1576008492875');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <!-- <img src="img/c.png" class="img-fluid" alt=""> -->
+        <!-- <p> The graph shows the number of movies released by year in the IMDB database along with a second line of the ratio of movies scored by the Bechdel test.</p>
+        <p>Discussion: </p>
+        <p>As the number of movies has grown over time, so has the number that have been scored according to the Bechdel criteria. The annual movie count has grown from hundreds to thousands in the present day, and the number scored has increased over time from under 5% to over 30% at its maximum in the mid 2000s.
+        Since the Bechdel test came into existence in 1985, the number has steadily grown. There may be a lag in the scoring of movies compared to their release date based on the small downturn.
+        Alternatively, the number of movies included in the database since 2010 has grown so quickly that bechdel scoring cannot keep up. This further suggests the importance of finding an automation methodology for this test.
+        Since we still only see about 40% of movies max are being scored on the Bechdel scale, an automated approach would make it easier for a greater proportion of movies to be scored so that the interpretation of the distribution of Bechdel scores is representative of all movies
+        </p> -->
+
+
+        <!-- <hr> -->
+      <!-- </div>
+    </div>
+  </section> -->
+<!--
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading text-center"> -->
+        <!-- <h2>Motivation for Problem / Application:</h2> -->
+        <!-- <p> Word count as a proxy vs. passing </p> -->
+        <p>Finally, the last dashboard shows the proportion of movies that pass the Bechdel test conditioned on the genre of the movie, over time. We are able to see clear trends in the proportion of passing movies when the feature is split on genre. Romance and Horror films have had the highest ratio of passing the Bechdel test since the 1980s; while Crime and Action films have had the lowest ratio of passing.
+        </p>
+      <div class='tableauPlaceholder' id='viz1576008546407' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Fig3_Genre&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Fig3_Genre&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Fig3_Genre&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1576008546407');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='1050px';vizElement.style.width='100%';vizElement.style.height='587px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='1050px';vizElement.style.width='100%';vizElement.style.height='587px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <!-- <img src="img/d.png" class="img-fluid" alt=""> -->
+
+        <!-- <p> The graph shows two ratios:</p>
+        <p> The percentage of movies that passed the Bechdel test compared to the total scored.
+        The percentage of words spoken by a female-gendered character in a movie compared to the total number of words spoken by characters of any gender.
+        </p>
+        <p>Discussion:
+        Reviewing the slopes of the two lines below, the percentage of passing movies is growing more quickly compared to the percentage of words spoken since the mid-1970s. This indicates that we would be missing an important component of the Bechdel test scoring if we were to only use word-count as a proxy in automation.
+        Furthermore, there is an interesting phenomenon that occurs in the 1940s that could be related to a reduced number of movies being made during a turbulent war time. There could also be a potential bias in the movies that were retroactively chosen to be scored.
+         </p> -->
+         <!-- add  bullets here -->
+
+
+        <!-- <hr> -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>Motivation for Problem / Application:</h2> -->
+
+
+
+
+  <!-- <section class="download bg-primary text-center" id="download">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h2 class="section-heading">Conclusion</h2>
+          <p>
+            Finding a way to automate the Bechdel test may be a difficult undertaking; however it could help improve the measure of the true proportion of Bechdel passing films by scoring all movies in the IMDB and beyond. Furthermore, it could help suggest similar methodologies that for other test that can continue to build towards a more equal movie industry.
+It is important to consider the ethical implications of feature engineering. As Data Scientists, we are the ones who need to voice concerns about using proxies that aren’t representative
+</p>
+<p><b>Data Cleaning: </p></b>
+<p>US  [ turn this into bullets leter]
+Movies
+Bechdel rated
+etc</p>
+
+<p><b>Data Sources: </b></p> [fix links later]
+<p>
+https://bechdeltest.com/
+https://www.imdb.com/interfaces/
+https://github.com/matthewfdaniels/scripts</p>
+
+<p><b>Code: </b></p>
+Github repo ⇒ Lisa to clean the code into one notebook
+
+
+<p><b>References:</b> </p>
+<p>Pautz, Michelle C. "Argo and zero dark thirty: Film, government, and audiences." PS: Political Science & Politics 48, no. 1 (2015): 120-128.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+
+<!-- <section class="features" id="features">
+  <div class='tableauPlaceholder' id='viz1576004974468' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Fig2_Proxies&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Fig2_Proxies&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Fig2_Proxies&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1576004974468');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+</section> -->
+
+<section class="download bg-primary text-justify" id="conclusion">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h2 class="section-heading">Conclusion</h2>
+        <!-- <h3> Discussion </h3>
+        <h3> Conclusion </h3> -->
+        <p> In this descriptive exploration of data, we have begun to see how nuanced an automation methodology would need to be to accurately capture the scoring of the Bechdel test. It would be difficult to find single proxy variables for the 3 criteria of the test, and feature engineering would need to include domain knowledge. This is not to say that automation is impossible; but our takeaway is that, as Data Scientists, we are the ones who need to voice concerns about using proxies that aren’t representative, and we should include the voices of domain experts when modeling qualitative outcomes that may be subjective.
+        </p>
+        <p>Finding a way to automate the Bechdel test may be a difficult undertaking; however, it could help improve the measure of the true proportion of Bechdel passing films by scoring all movies in the IMDb and beyond. It is of note is that it is also not the only metric for quantifying representation in media, as it only considers one identity variable -- gender. Washington Post writer Alyssa Rosenberg claims "The Bechdel Test set a very low floor for Hollywood. We can't let it become the ceiling for progress [3]." In the past decade, many other representation tests have been formulated, considering the distribution of people who work on the film's production, or relating other intersectional features like race, ethnicity, socioeconomic status, so that representation is inclusive to identities beyond cisgender white women. Though our analysis focuses on the Bechdel Test, our suggestions about feature engineering can help establish similar methodologies for other tests and continue to build a more equitable movie industry.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Team v.2 -->
+<section class="team-section text-center my-5" id ="team">
+
+  <!-- Section heading -->
+  <h2 >Team</h2>
+  <!-- Section description -->
+  <p class="grey-text w-responsive mx-auto mb-5">We are data science masters students from New York University's Center for Data Science, and completed this project for our Introduction to Programming Class.</p>
+
+  <!-- Grid row -->
+  <div class="row text-center">
+
+    <!-- Grid column -->
+
+    <div class="col-md-4">
+      <div class="avatar mx-auto">
+        <img src="img/0.jpeg" class="rounded z-depth-1-half" alt="Sample avatar">
+      </div>
+      <h4 class="font-weight-bold dark-grey-text my-4">Lisa Combs</h4>
+      <h6 class="text-uppercase grey-text mb-3"><strong>Data Scientist</strong></h6>
+      <!--Linkedin -->
+      <!-- <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-li">
+        <i class="fab fa-linkedin-in "></i>
+      </a> -->
+      <!-- Twitter -->
+      <!-- <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-tw">
+        <i class="fab fa-twitter "></i>
+      </a> -->
+
+    </div>
+    <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="col-md-4">
+      <div class="avatar mx-auto">
+        <img src="img/1.jpeg" class="rounded z-depth-1-half" alt="Sample avatar">
+      </div>
+      <h4 class="font-weight-bold dark-grey-text my-4">Amber Teng</h4>
+      <h6 class="text-uppercase grey-text mb-3"><strong>Data Scientist</strong></h6>
+      <!--Linkedin -->
+      <!-- <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-li">
+        <i class="fab fa-linkedin-in "></i>
+      </a> -->
+      <!-- Twitter -->
+      <!-- <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-tw">
+        <i class="fab fa-twitter "></i>
+      </a> -->
+
+    </div>
+
+
+    <!-- Grid column -->
+    <div class="col-md-4">
+      <div class="avatar mx-auto">
+        <img src="img/3.jpeg" class="rounded z-depth-1-half" alt="Sample avatar">
+      </div>
+      <h4 class="font-weight-bold dark-grey-text my-4">Lauren D'Arinzo</h4>
+      <h6 class="text-uppercase grey-text mb-3"><strong>Data Scientist</strong></h6>
+      <!--Linkedin -->
+      <!-- <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-li">
+        <i class="fab fa-linkedin-in "></i>
+      </a> -->
+      <!-- Twitter -->
+      <!-- <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-tw">
+        <i class="fab fa-twitter "></i>
+      </a> -->
+
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+</section>
+<!-- Section: Team v.2 -->
+
+  <footer>
+    <div class="container">
+      <p>&copy; Teng, D'Arinzo, Combs 2019. All Rights Reserved. Submitted for DSGA1007 - NYU CDS Professor Policastro</p>
+      <!-- <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="#">Privacy</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">Terms</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">FAQ</a>
+        </li>
+      </ul> -->
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/new-age.min.js"></script>
+
+</body>
+
+</html>
